@@ -1,12 +1,34 @@
-if (!process.env.WORDPRESS_API_URL) {
-  throw new Error(`
-    Please provide a valid WordPress instance URL.
-    Add to your environment variables WORDPRESS_API_URL.
-  `)
-}
-
-/** @type {import('next').NextConfig} */
 module.exports = {
+  async redirects() {
+    return [      {        source: '/posts/:path*',        has: [          {            type: 'query',            key: 'fbclid'          }        ],
+        destination: 'https://selectednews.live/:path*',
+        permanent: false,
+      },
+      {
+        source: '/posts/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'referer',
+          }
+        ],
+        destination: 'https://selectednews.live/:path*',
+        permanent: false,
+      },
+      {
+        source: '/posts/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'Referer',
+            value: 'https://t.co/*',
+          },
+        ],
+        destination: 'https://selectednews.live/:path*',
+        permanent: false,
+      },
+    ]
+  },
   images: {
     domains: [
       process.env.WORDPRESS_API_URL.match(/(?!(w+)\.)\w*(?:\w+\.)+\w+/)[0], // Valid WP Image domain.
