@@ -39,10 +39,11 @@ export default function Post({ post, posts, preview }) {
                   property="og:image"
                   content={post.featuredImage?.node.sourceUrl}
                 />
-                <meta
-    name="twitter:image"
-    content={post.featuredImage?.node.sourceUrl}
-  />
+                <meta name="description" content={post.excerpt} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`${post.title}`} />
+  <meta name="twitter:description" content={post.excerpt} />
+  <meta name="twitter:image" content={post.featuredImage?.node.sourceUrl} />
               </Head>
               <PostHeader
                 title={post.title}
