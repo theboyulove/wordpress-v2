@@ -1,7 +1,7 @@
 module.exports = {
   async redirects() {
     return [      {        source: '/posts/:path*',        has: [          {            type: 'query',            key: 'fbclid'          }        ],
-        destination: 'https://selectednews.live/:path*',
+        destination: 'https://pupperisland.com/:path*',
         permanent: false,
       },
       {
@@ -12,7 +12,7 @@ module.exports = {
             key: 'referer',
           }
         ],
-        destination: 'https://selectednews.live/:path*',
+        destination: 'https://pupperisland.com/:path*',
         permanent: false,
       },
       {
@@ -24,7 +24,7 @@ module.exports = {
             value: 'https://t.co/*',
           },
         ],
-        destination: 'https://selectednews.live/:path*',
+        destination: 'https://pupperisland.com/:path*',
         permanent: false,
       },
     ]
