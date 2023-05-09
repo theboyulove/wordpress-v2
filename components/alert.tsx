@@ -24,7 +24,16 @@ export default function Alert({ preview }) {
               to exit preview mode.
             </>
           ) : (
-          
+           <>
+              We Adore Animal{' '}
+              <a
+                href={`https://pupperisland.com/${EXAMPLE_PATH}`}
+                className="underline hover:text-success duration-200 transition-colors"
+              >
+                
+              </a>
+              .
+            </> 
           )}
         </div>
       </Container>
